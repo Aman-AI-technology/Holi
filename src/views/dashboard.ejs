@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('adminHeader'); -%>
+
+      <main class="content" >
+        <section class="vh-100 gradient-custom">
+          <div class="container py-5 h-10">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col col-xl-6">
+                <div class="card" style="border-radius: 1rem;">
+                  
+                      <div class="card-body p-4 p-lg-5 text-black">
+        
+                        <h2 class="fw-bold mb-2 text-uppercase mb-3">
+                          Create Invitation
+                        </h2>
+                        
+                        <form action="/post-invitation" method="post">
+                          <% if(locals.err_msg) { %>
+                          <div class="alert alert-danger" role="alert">
+                            <%= err_msg %>
+                          </div>
+                          <% } %> <% if(locals.success) { %>
+                          <div class="alert alert-success" role="alert">
+                            <%= success %>
+                          </div>
+                          <% } %>
+  
+                          <div class="form-outline form-white mb-4">
+                            <input
+                              name="name"
+                              type="text"
+                              id="typeEmailX"
+                              class="form-control " 
+                              placeholder="Name"
+                            />
+                          </div>
+
+                          <div class="form-outline form-white mb-4">
+                            <input
+                              name="email"
+                              type="email"
+                              id="typeEmailX"
+                              class="form-control " 
+                              placeholder="Enter Email"
+                            />
+                          </div>
+
+                          <div class="form-outline form-white mb-4">
+                            <input
+                              name="mobileNo"
+                              type="Number"
+                              id="typeEmailX"
+                              class="form-control " 
+                              placeholder="Enter Mobile No"
+                            />
+                          </div>
+  
+                          <button
+                            class="btn text-white shadow  px-5" 
+                            type="submit"
+                          >
+                            Submit
+                          </button>
+                        </form>
+        
+                      </div>
+                   
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const menu_toggle = document.querySelector(".menu-toggle");
+      const sidebar = document.querySelector(".sidebar");
+      const content = document.querySelector(".content");
+
+      menu_toggle.addEventListener("click", () => {
+        menu_toggle.classList.toggle("is-active");
+        sidebar.classList.toggle("is-active");
+        content.classList.toggle("is-active");
+      });
+    </script>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
