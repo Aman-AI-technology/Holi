@@ -249,4 +249,20 @@ exports.getListInvitation =  async(req,res)=>{
 }
 
 
+exports.fetchMobileNumber =  async(req,res)=>{
+    try{
+         
+        let id = req.params.id
+        
+           let data = await userModel.findOne({mobileNo: req.body.id}) 
+
+            return res.send(data)   
+        
+    }catch(e){
+        console.log(e)
+        return res.send({Error: e.message})
+    }
+}
+
+
 
