@@ -234,30 +234,34 @@ exports.listInvitation = async (req, res) => {
 
 
 
+// exports.getListInvitation =  async(req,res)=>{
+//     try{
+         
+
+//            let lastBill = await userModel.find() 
+
+//             res.render('listInvitation', {details: lastBill})       
+        
+//     }catch(e){
+//         console.log(e)
+//         return res.send({Error: e.message})
+//     }
+// }
+
+
 exports.getListInvitation =  async(req,res)=>{
     try{
          
+        const searchQuery = req.query.search || ''; // Define the search query variable and default it to an empty string
+        let records = await userModel.find(); // Fetch all records by default
+      
+        console.log(searchQuery)
 
-           let lastBill = await userModel.find() 
-
-            res.render('listInvitation', {details: lastBill})       
-        
-    }catch(e){
-        console.log(e)
-        return res.send({Error: e.message})
-    }
-}
-
-
-exports.fetchMobileNumber =  async(req,res)=>{
-    try{
-         
-        let id = req.params.id
-        
-           let data = await userModel.findOne({mobileNo: req.body.id}) 
-
-            return res.send(data)   
-        
+        if (searchQuery) {
+          records = await userModel.find({mobileNo: searchQuery}); // Filter records by search query
+        }
+      
+        res.render('listInvitation', { records, searchQuery });
     }catch(e){
         console.log(e)
         return res.send({Error: e.message})

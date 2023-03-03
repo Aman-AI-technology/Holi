@@ -3,74 +3,89 @@
 
 <%- include('adminHeader'); -%>
 
-      <main class="content">
-        <section class="vh-100 gradient-custom">
-          <div class="container-fluid py-5 h-80">
-            <div
-              class="row d-flex justify-content-center align-items-center h-100"
-            >
-              <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="" style="border-radius: 1rem">
-                  <div class="p-2 text-center text-white">
-                    <div class="mb-md-5 mt-md-4">
-                      <h2 class=" mb-2 text-uppercase">
-                        list Invitation
-                      </h2>
-                      <table class="table table-bordered table-responsive text-white">
-                        <thead>
+
+
+
+  <main class="content">
+    <section class="vh-100 gradient-custom">
+      <div class="container-fluid py-5 h-80">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="" style="border-radius: 1rem">
+              <div class="p-2 text-center text-white">
+                <div class="mb-md-5 mt-md-4">
+                  <h2 class=" mb-2 text-uppercase">
+                    list Invitation
+                  </h2>
+    
+                  <form method="GET" action="/getListInvitation" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <input type="text" name="search" value="<%= searchQuery || '' %>" placeholder="Search..." style="flex: 1; padding: 0.5rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px; outline: none;">
+                    <button type="submit" style="padding: 0.5rem 1rem; font-size: 1rem; color: #fff; background-color: #007bff; border: none; border-radius: 4px; cursor: pointer;">Search</button>
+                  </form>
+    
+                  <div class="table-responsive">
+                    <table class="table table-bordered text-white">
+                      <thead>
+                        <tr>
+                          <th scope="col">SNo.</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Mobile No</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% records.forEach((record, index)=> { %>
                           <tr>
-                            <th scope="col">SNo.</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Mobile No</th>
+                            <th>
+                              <%= index + 1 %>
+                            </th>
+                            <td>
+                              <%= record.name %>
+                            </td>
+                            <td>
+                              <%= record.email %>
+                            </td>
+                            <td>
+                              <%= record.mobileNo %>
+                            </td>
                           </tr>
-                        </thead>
-                        <tbody>
-                            <% details.forEach(function(item, index){ %>
-                                <tr>
-                                  <th><%= index + 1 %></th>
-                                  <td><%= item.name %></td>
-                                  <td><%= item.email %></td>
-                                  <td><%= item.mobileNo %></td>
-                                </tr>
-                              </tbody>
-                              <% }) %>
-                      </table>   
-                    </div>
+                          <% }); %>
+                    </table>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-      </main>
-    </div>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  </div>
 
-    <script>
-      const menu_toggle = document.querySelector(".menu-toggle");
-      const sidebar = document.querySelector(".sidebar");
-      const content = document.querySelector(".content");
 
-      menu_toggle.addEventListener("click", () => {
-        menu_toggle.classList.toggle("is-active");
-        sidebar.classList.toggle("is-active");
-        content.classList.toggle("is-active");
-      });
-    </script>
+  <script>
+    const menu_toggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar");
+    const content = document.querySelector(".content");
 
-   
+    menu_toggle.addEventListener("click", () => {
+      menu_toggle.classList.toggle("is-active");
+      sidebar.classList.toggle("is-active");
+      content.classList.toggle("is-active");
+    });
+  </script>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
   </body>
+
 </html>
