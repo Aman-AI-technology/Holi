@@ -173,10 +173,11 @@ exports.postInvitation =  async (req, res) => {
                       <h1>Happy Holi!</h1>
                       <h2>${name}</h2>
                       <p>You are cordially invited to our Holi party.</p>
-                      <p>Date: March 29th, 2022<br>
-                      Time: 4:00 PM<br>
-                      Venue: Our backyard<br>
-                      Address: 123 Main St, Anytown</p>
+                      <h2>Holi at Ocean</h2>
+                      <p>Date: March 08th, 2023<br>
+                      Time: 9:00 AM to 02:00 PM IST <br>
+                      Venue: Bay Watch Resorts, <br>
+                      Yendada, Vizag</p>
                       <img src="cid:qrcode.png" alt="Invitation Image">
                       </div>
                     </body>
