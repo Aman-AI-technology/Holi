@@ -38,26 +38,21 @@ exports.postInvitation =  async (req, res) => {
 
             const qrCodeImage = await qrcode.toDataURL(text);
 
-            const transporter = nodemailer.createTransport({
-
-                service: 'gmail',
-    
-                hosts: 'smpt.gmail.com',
-    
-                auth: {
-    
-                    user: 'sirishkarri1@gmail.com',
-    
-                    pass: 'jretxzutggdmxnjk'
-                }
-    
+            let transporter = nodemailer.createTransport({
+              host: "smtp.hostinger.com",
+              port: 587,
+              secure: false, // true for 465, false for other ports
+              auth: {
+                user: "invitation@aibm.store",
+                pass: "Imran@123#",
+              },
             });
           
               // Define email options
               const mailOptions = {
-                from: 'thinkinternet2020@gmail.com',
+                from: 'invitation@aibm.store',
                 to: email,
-                subject: 'Your QR code',
+                subject: 'invitation card',
                 html: `<!DOCTYPE html>
                 <html>
                   <head>

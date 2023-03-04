@@ -19,7 +19,7 @@ const sendEmail = async (email, subject, text) => {
 
                 user: 'thinkinternet2020@gmail.com',
 
-                pass: 'wzzjkvkmedietwni'
+                pass: 'uvlzafgssdnfknba'
             }
 
         });
@@ -83,7 +83,7 @@ const sendEmailforget = async (email, subject, text) => {
 
                 user: 'thinkinternet2020@gmail.com',
                 
-                pass: 'wzzjkvkmedietwni'
+                pass: 'uvlzafgssdnfknba'
             }
 
         });
